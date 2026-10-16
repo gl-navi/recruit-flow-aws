@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build output
+build/
+*.zip
+
+# Secrets and local settings
+.env
+.env.*
+*.pem
+*.key
+*.local.json
+.aws/
+
+# Exports from Pipedream and anything with applicant data
+pipedream-export/
+exports/
+sample-events/
+
+# Editors
+.idea/

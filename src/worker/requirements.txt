@@ -1,0 +1,7 @@
+# Packages the worker needs, taken from the Pipedream flows' imports.
+# Versions are not pinned yet. Pin them in WBS phase 4, once the code uses them.
+python-magic
+httpx
+tenacity
+requests
+werkzeug

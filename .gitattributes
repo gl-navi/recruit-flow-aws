@@ -1,0 +1,5 @@
+# Keep Unix line endings so scripts run in WSL and Lambda even when edited on Windows
+*.sh text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf

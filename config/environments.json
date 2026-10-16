@@ -1,0 +1,25 @@
+{
+  "_note": "Region is still to be confirmed (WBS 2.1). Function names must match what is created in AWS (docs/runbook.md).",
+  "region": "ap-northeast-1",
+  "ecr_repository": "423623854229.dkr.ecr.ap-northeast-1.amazonaws.com/recruit-worker",
+  "environments": {
+    "dev": {
+      "profile": "recruit",
+      "functions": {
+        "receiver": "recruit-receiver-dev",
+        "worker": "recruit-worker-dev",
+        "marketo_sync": "recruit-marketo-sync-dev",
+        "error_notifier": "recruit-error-notifier-dev"
+      }
+    },
+    "prod": {
+      "profile": "recruit",
+      "functions": {
+        "receiver": "recruit-receiver-prod",
+        "worker": "recruit-worker-prod",
+        "marketo_sync": "recruit-marketo-sync-prod",
+        "error_notifier": "recruit-error-notifier-prod"
+      }
+    }
+  }
+}
