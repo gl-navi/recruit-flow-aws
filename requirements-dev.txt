@@ -1,0 +1,6 @@
+# Packages needed to run the tests and scripts on your own computer.
+# Lambda gets them differently: the worker's container installs src/worker/requirements.txt.
+httpx
+tenacity
+# Lambda already includes boto3. You only need it here to read Secrets Manager from your computer.
+boto3

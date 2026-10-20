@@ -3,7 +3,7 @@
 import json
 
 from shared import VERSION
-from shared.step_log import StepLogger
+from shared.log_helper import StepLogger
 
 
 def lambda_handler(event, context):
