@@ -13,9 +13,7 @@ def lambda_handler(event, context):
         request_id=getattr(context, "aws_request_id", None),
     )
 
-    # TEMPORARY (WBS 4.4): shows the log lines in CloudWatch.
-    # Remove this when the real receiver is built (WBS 5.1).
-    log.info("receiver started")  # message outside any step: its "step" field is null
+    log.info("receiver started")
     with log.step("receive_event", input=event) as step:
         log.info("event received")
         if event == {}:
