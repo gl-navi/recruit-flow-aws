@@ -2,17 +2,15 @@
 
 Recruitment application flow, moved from Pipedream to AWS. It connects the recruitment website forms to Salesforce, SharePoint, Slack and Marketo.
 
-Planning documents (kept outside this repo): *Pipedream to AWS Migration Notes* and *Pipedream to AWS Migration WBS*.
-
 ## Layout
 
 | Path | What it is |
 | --- | --- |
-| `src/receiver/` | Receiver Lambda: front door for the forms (WBS 5.1) |
-| `src/worker/` | Worker Lambda: runs the six form flows (WBS 5.2 to 5.4) |
-| `src/marketo_sync/` | Marketo score sync Lambda, started by a schedule (WBS 6) |
-| `src/error_notifier/` | Error notifier Lambda (WBS 7) |
-| `src/shared/` | Code shared by all Lambdas: Salesforce, Graph and Slack clients, helpers, step logging (WBS 4) |
+| `src/receiver/` | Receiver Lambda: front door for the forms |
+| `src/worker/` | Worker Lambda: runs the six form flows  |
+| `src/marketo_sync/` | Marketo score sync Lambda, started by a schedule  |
+| `src/error_notifier/` | Error notifier Lambda |
+| `src/shared/` | Code shared by all Lambdas: Salesforce, Graph and Slack clients, helpers, step logging |
 | `config/environments.json` | Which AWS profile and function names belong to `dev` and `prod` |
 | `scripts/` | `deploy.sh` and `build_zip.py` |
 | `tests/` | Local tests |
@@ -25,14 +23,14 @@ Every Lambda is a `lambda_function.py` with a `lambda_handler`. Each deployed zi
 - `dev`: the test copy. It points at the Salesforce sandbox.
 - `prod`: the real copy. It points at real Salesforce and real applicants.
 
-The names come from `config/environments.json`. The region there (`ap-northeast-1`) is still to be confirmed (WBS 2.1).
+The names come from `config/environments.json`. The region there (`ap-northeast-1`) is still to be confirmed.
 
 ## Requirements
 
-- Python 3.14 everywhere: local work, the Lambda runtime and, later, the worker's container base image (WBS 1.2). Keep the same version in all three. The code needs 3.12 or newer, because it uses syntax that older versions reject.
+- Python 3.14 everywhere: local work, the Lambda runtime and, later, the worker's container base image. Keep the same version in all three. The code needs 3.12 or newer, because it uses syntax that older versions reject.
 - AWS CLI v2 with one profile, `recruit` (dev and prod share it; they differ by function name). Check it with `aws sts get-caller-identity --profile recruit`.
 - Git.
-- Docker, to build the worker's container image (WBS 1.2).
+- Docker, to build the worker's container image.
 
 ## Run the tests
 
